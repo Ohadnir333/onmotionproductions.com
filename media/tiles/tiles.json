@@ -1,0 +1,28 @@
+{
+ "commercial": {
+  "src": "/media/tiles/commercial.mp4",
+  "sm": "/media/tiles/commercial-sm.mp4",
+  "poster": "/media/tiles/commercial.jpg"
+ },
+ "social": {
+  "strip": [
+   {
+    "src": "/media/tiles/social-1.mp4",
+    "poster": "/media/tiles/social-1.jpg"
+   },
+   {
+    "src": "/media/tiles/social-2.mp4",
+    "poster": "/media/tiles/social-2.jpg"
+   },
+   {
+    "src": "/media/tiles/social-3.mp4",
+    "poster": "/media/tiles/social-3.jpg"
+   }
+  ]
+ },
+ "documentary": {
+  "src": "/media/tiles/documentary.mp4",
+  "sm": "/media/tiles/documentary-sm.mp4",
+  "poster": "/media/tiles/documentary.jpg"
+ }
+}
