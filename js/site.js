@@ -588,3 +588,28 @@
     reveal.forEach(function (el) { el.classList.add("is-in"); });
   }
 })();
+
+/* phones only, once: "Made for the big screen" with a share button */
+(function () {
+  var bar = document.querySelector("[data-bigscreen]");
+  if (!bar || !window.matchMedia("(max-width: 760px) and (pointer: coarse)").matches) return;
+  var KEY = "onm-bigscreen";
+  try { if (localStorage.getItem(KEY)) return; } catch (e) {}
+  var close = function () {
+    bar.classList.remove("is-on");
+    try { localStorage.setItem(KEY, "1"); } catch (e) {}
+    setTimeout(function () { bar.hidden = true; }, 500);
+  };
+  bar.hidden = false;
+  setTimeout(function () { bar.classList.add("is-on"); }, 2500);
+  bar.querySelector("[data-bigscreen-close]").addEventListener("click", close);
+  var share = bar.querySelector("[data-bigscreen-share]");
+  share.addEventListener("click", function () {
+    var url = location.origin + location.pathname;
+    if (navigator.share) {
+      navigator.share({ title: document.title, text: "Watch on a big screen", url: url }).then(close, function () {});
+    } else if (navigator.clipboard) {
+      navigator.clipboard.writeText(url).then(function () { share.textContent = "Link copied"; setTimeout(close, 1400); });
+    }
+  });
+})();

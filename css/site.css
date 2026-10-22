@@ -1054,3 +1054,24 @@ a.dip-title:hover { text-decoration: underline; text-underline-offset: 4px; }
   .hero-actions .btn { padding-left: 18px; padding-right: 18px; }
   .hero-talk { order: -1; }
 }
+
+/* phones only: a one-time note that the site is made for a big screen, with a share button */
+.bigscreen {
+  position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 60;
+  display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 10px;
+  padding: 12px 10px 12px 16px; border-radius: 16px;
+  background: rgba(20, 20, 20, 0.92); color: var(--on-ink); border: 1px solid var(--on-ink-faint);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  font-family: var(--text); font-size: 13px; line-height: 1.35;
+  transform: translateY(140%); opacity: 0; transition: transform 0.5s var(--ease), opacity 0.4s;
+}
+.bigscreen[hidden] { display: none; }
+.bigscreen.is-on { transform: none; opacity: 1; }
+.bigscreen p { margin: 0; color: var(--on-ink-muted); }
+.bigscreen strong { display: block; color: var(--on-ink); font-family: var(--display); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 3px; }
+.bigscreen-share {
+  min-height: 36px; padding: 0 14px; border-radius: 999px; border: 0; cursor: pointer;
+  background: var(--on-ink); color: var(--ink); font-family: var(--display); font-weight: 700; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;
+}
+.bigscreen-close { width: 32px; height: 36px; border: 0; background: none; color: var(--on-ink-muted); font-size: 22px; line-height: 1; cursor: pointer; }
+@media (min-width: 761px) { .bigscreen { display: none !important; } }
