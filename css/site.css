@@ -1075,3 +1075,20 @@ a.dip-title:hover { text-decoration: underline; text-underline-offset: 4px; }
 }
 .bigscreen-close { width: 32px; height: 36px; border: 0; background: none; color: var(--on-ink-muted); font-size: 22px; line-height: 1; cursor: pointer; }
 @media (min-width: 761px) { .bigscreen { display: none !important; } }
+
+/* home: four selected films, each with a strip of set photos, then a way into the categories */
+.feat-grid { display: grid; gap: clamp(40px, 4vw, 64px) clamp(16px, 2vw, 32px); grid-template-columns: 1fr; }
+@media (min-width: 900px) { .feat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.feat-card { list-style: none; margin: 0; padding: 0; }
+.feat-bts { display: flex; align-items: center; gap: 14px; margin-top: 14px; }
+.feat-bts-label {
+  flex: none; writing-mode: vertical-rl; transform: rotate(180deg);
+  font-family: var(--display); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--on-ink-muted);
+}
+.feat-bts-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; flex: 1; max-width: 420px; }
+.feat-bts-row img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; filter: saturate(0.9); transition: filter 0.3s, opacity 0.3s; opacity: 0.85; }
+.feat-bts:hover .feat-bts-row img { opacity: 1; filter: none; }
+.feat-more { margin-top: clamp(64px, 7vw, 110px); padding-top: clamp(32px, 4vw, 48px); border-top: 1px solid var(--on-ink-faint); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 32px; }
+.feat-more-title { margin: 0; font-family: var(--display); font-weight: 700; font-size: clamp(18px, 2.2vw, 30px); letter-spacing: 0.02em; text-transform: uppercase; }
+.feat-more-links { display: flex; flex-wrap: wrap; gap: 10px; }
+@media (max-width: 760px) { .feat-more-links .btn { flex: 1 1 calc(50% - 10px); justify-content: center; } }
